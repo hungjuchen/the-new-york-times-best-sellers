@@ -1,0 +1,102 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Search Results Page
+      </h1>
+    </header>
+    
+<form action="/search" method="get">
+  <div>
+    <label for="searchin">Search Field:</label>
+    
+    <select name="searchin" id="searchin" value="">
+      <option value="all">All</option>
+      <option value="title">Title</option>
+      <option value="subject">Subject</option>
+      <option value="creator">Creator</option>
+    </select>
+    
+    <label for="orderby">Order by:</label>
+
+    <select name="orderby" id="orderby" value="">
+      <option value="title">Title</option>
+      <option value="rank">Rank</option>
+      <option value="weeks">Weeks</option>
+    </select>
+    
+  </div>
+  <div>
+    <label for="searchval">Search for what?</label>
+    <input name="searchval" id="searchval" value="">
+  </div>
+  <div>
+    <button>Search</button>
+  </div>
+</form>
+    
+    
+    <hr/>
+    
+
+    <main>
+      <% results.forEach(function(r) { %>
+      
+
+        <div><%= r.title %></div>
+        <div><%= r.isbn %></div>
+        <div><%= r.title %></div>
+        <div><%= r.description %></div>
+        <div><%= r.creator %></div>
+        <div><%= r.oclc %></div>
+        <div><%= r.rank %></div>
+        <div><%= r.weeks %></div>
+        <% r.subject.forEach(function(s) { %>
+          <div>subject: <%= s%></div>
+        <% }) %>     
+        <div><%= r.publisher %></div>
+        <div><%= r.review %></div>
+        <div><%= r.cover %></div>
+        <div><%- r.history %></div>     
+      
+        <hr/>
+      
+      <% }) %>     
+
+    </main>
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>

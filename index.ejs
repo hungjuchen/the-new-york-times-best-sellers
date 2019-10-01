@@ -1,0 +1,332 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    
+    
+    <!--css style-->
+    <style>
+      body{
+        font-family: verdana;
+        font-style: normal;
+        font-size:15px;
+        line-height: 28px;
+        padding: 0px;
+        display:flex;
+        margin: 0px;
+      }
+      
+      
+      #NYT_pic{
+        margin:0px;
+      }
+      
+      #best{
+        background-color: #1D1A1A;
+        color: white;
+        text-align: center;
+        padding: 50px 10px;
+        margin: 0;
+      }
+      
+      #best h1{
+        font-family: Georgia, Garamond, serif;
+      }
+      
+      #container{
+        background-color:DarkSalmon ;
+        text-align: left;
+        padding: 50px;
+        display:flex;
+        margin: 0px;
+      }
+      
+      #row_1{
+        padding: 20px;
+        background-color:PeachPuff ;
+        justify-content:flex-end;
+        color:#1D1A1A;
+        border: 1px dashed DarkSalmon;
+      }
+      
+      #title{
+        color:#1D1A1A ;
+        font-size:22px;
+        font-style: 600;
+        font-family: Georgia, Garamond, bolder;
+      }
+      
+      .text{
+        color:#1D1A1A;
+      }
+      
+      #row_1 learnmore{
+        background-color: #1D1A1A;
+        padding: 20px 10px;
+        text-align: center;
+        border: 1px dashed DarkSalmon;
+      }
+      
+      #footer{
+        background-color: #1D1A1A;
+        color: white;
+        padding: 50px 10px;
+        margin: 0;
+        display:flex;
+      }
+      
+      #footer about{
+        justify-content:flex-end;
+        margin: 50px;
+        
+      }
+      
+      #footer help{
+        justify-content:flex-end;
+      }
+      
+      #footer logo{
+        justify-content:flex-end;
+      }
+    </style>
+    
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  
+  
+  
+  
+  
+  <body>
+    <header>
+      <div>	
+	
+  <!--head banner-->
+  <div id="NYT_pic"> 
+		<img src="https://www.niemanlab.org/images/new-york-times-en-espanol-1.jpeg" alt="logo" >
+	</div>
+  
+  <!--search bar-->
+   <form action="https://nyt-best-seller-project.glitch.me/search" method="get">
+    <div>
+      <label for="searchin">Search Field: </label>
+
+      <select name="searchin" id="searchin" value="">
+        <option value="all">All</option>
+        <option value="title">Title</option>
+        <option value="subject">Subject</option>
+        <option value="creator">Creator</option>
+      </select>
+
+      <label for="orderby">Order by: </label>
+
+      <select name="orderby" id="orderby" value="">
+        <option value="title">Title</option>
+        <option value="rank">Rank</option>
+        <option value="weeks">Weeks</option>
+      </select>
+
+    </div>
+  
+  <div>
+    <label for="searchval">Search by Keywords: </label>
+    <input name="searchval" id="searchval" value="">
+  </div>
+  <div>
+    <button>Search</button>
+  </div>
+</form>
+	
+  
+  <!--best seller banner-->
+	<div id="best">
+		<h1>✨The New York Times Best Sellers✨</h1>
+		<p>Authoritatively ranked lists of books sold in the United States, sorted by format and genre.</p>
+	</div>
+	
+
+	<!--book section-->
+	<div id="container">
+    
+    <!--book_1-->
+		<div id="row_1" width="200px;">
+			<div><image src="<%= cover %>"></div>
+      <div id="title"><%= title %></div>
+      <div class="text"><%= description %></div>
+      <div id="creator">Creator: <%= creator %></div>
+      <div id="rank">Rank: <%= rank %></div>
+      <div id="weeks">Weeks: <%= weeks %></div>
+      <div id="publisher">Publisher: <%= publisher %></div>
+      <div> <a href="/book/<%= isbn %>" >Learn More</a></div>
+		</div>
+		
+    <!--book_2-->
+		<div id="row_1" width="200px;">
+			<div><image src="<%= cover2 %>"></div>
+      <div id="title"><%= title2 %></div>
+      <div class="text"><%= description2 %></div>
+      <div id="creator">Creator: <%= creator2%></div>
+      <div id="rank">Rank: <%= rank2 %></div>
+      <div id="weeks">Weeks: <%= weeks2 %></div>
+      <div id="publisher">Publisher: <%= publisher2 %></div>
+      <div> <a href="/book/<%= isbn2%>" >Learn More</a></div>
+		</div>
+		
+    <!--book_3-->
+		<div id="row_1" width="200px;">
+			<div><image src="<%= cover3 %>"></div>
+      <div id="title"><%= title3 %></div>
+      <div class="text"><%= description3 %></div>
+      <div id="creator">Creator: <%= creator3%></div>
+      <div id="rank">Rank: <%= rank3 %></div>
+      <div id="weeks">Weeks: <%= weeks3 %></div>
+      <div id="publisher">Publisher: <%= publisher3 %></div>
+      <div> <a href="/book/<%= isbn3%>" >Learn More</a></div>
+		</div>
+	</div>
+	
+  <!--footer-->
+	<div id="footer" >
+    <div id="logo">
+      <img src="https://cdn.freebiesupply.com/images/large/2x/new-york-times-logo-black-and-white.png" alt="logo2" width="300px;">
+      <p>
+        We believe that great journalism has the power to make each reader’s life richer and more fulfilling,<br/> 
+        and all of society stronger and more just.
+      </p>
+    </div>
+    
+    <div id="about">
+      <p>
+        About
+      </p>
+      <p>
+        The New York Times Company
+      </p>
+      <p>
+        Privacy Policy
+      </p>
+      <p>
+        Terms of Sale  
+      </p>
+    </div>
+    
+    <div id="help"> 
+      <p>
+        Help
+      </p>
+      <p>
+        Frequently Asked Questions        
+      </p>
+      <p>
+        Contact Us        
+      </p>
+      <p>
+        Feedback        
+      </p>
+    </div>
+			
+      
+	</div>	
+</div>	
+    
+
+    </header>
+
+    
+    
+    
+    
+    
+    
+    <!---
+    <main>
+
+      <image src="<%= cover %>">
+      
+      <div id="title">Title:<%= title %></div>
+      <div><a href="/book/<%= isbn %>" >Book Details</a></div>
+      <div class="text"><%= description %></div>
+      <div><%= creator %></div>
+      <div><%= oclc %></div>
+      <div><%= rank %></div>
+      <div><%= weeks %></div>
+      <% subject.forEach(function(s) { %>
+        <div>subject: <%= s%></div>
+      <% }) %>     
+      <div><%= publisher %></div>
+      <div><%= review %></div>
+      <div><%= cover %></div>
+      <div><%- history %></div>    
+
+     
+      
+      <image src="<%= cover2%>">
+      <div id="title"><%= title2 %></div>
+      <div><%= isbn2 %></div>
+      <div><%= title2 %></div>
+      <div><%= description2 %></div>
+      <div><%= creator2 %></div>
+      <div><%= oclc2 %></div>
+      <div><%= rank2 %></div>
+      <div><%= weeks2 %></div>
+      <% subject2.forEach(function(s) { %>
+        <div>subject: <%= s%></div>
+      <% }) %>     
+      <div><%= publisher2 %></div>
+      <div><%= review2 %></div>
+      <div><%= cover2 %></div>
+      <div><%- history2 %></div>   
+     
+      
+      <!--- a third random book 
+
+      <div><%= title3 %></div>
+      <div><%= isbn3 %></div>
+      <div><%= title3 %></div>
+      <div><%= description3 %></div>
+      <div><%= creator3 %></div>
+      <div><%= oclc3 %></div>
+      <div><%= rank3 %></div>
+      <div><%= weeks3 %></div>
+      <% subject3.forEach(function(s) { %>
+        <div>subject: <%= s%></div>
+      <% }) %>     
+      <div><%= publisher3 %></div>
+      <div><%= review3 %></div>
+      <div><%= cover3 %></div>
+      <div><%- history3 %></div>   
+      --->
+
+      
+    </main>
+    -->
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
